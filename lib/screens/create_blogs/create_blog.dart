@@ -14,12 +14,8 @@ class _CreateBlogScreenState extends State<CreateBlogScreen> {
 
   @override
   void initState() {}
-  void _clearFields() {
-    imageNameController.clear();
-    setState(() {
-      _selectedImage = null;
-    });
-  }
+  
+
 
   Future<void> _pickImage(ImageSource source) async {
     final ImagePicker _picker = ImagePicker();
