@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_blog_app/infrastructure/repository.dart';
+import 'package:flutter_internship_blog_app/screens/splash_screen/splash_screen.dart';
 
 import 'infrastructure/auth/login_rego.dart';
-import 'screens/auth/register/register.dart';
+import 'infrastructure/auth/register_repo.dart';
 
 void main() {
   runApp(
     RepositoryProvider(
-      create: (context) => Repository(loginRepo: LoginRepo()),
+      create: (context) => Repository(
+        loginRepo: LoginRepo(),
+        registerRepo: RegisterRepo(),
+      ),
       child: const MyApp(),
     ),
   );
@@ -20,12 +24,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegisterScreen(),
+      home: const SplashScreen(),
     );
   }
 }

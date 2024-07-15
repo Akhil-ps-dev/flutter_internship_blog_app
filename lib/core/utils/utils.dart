@@ -10,15 +10,19 @@ class Utils {
   Future<void> manupulationLogin(context) async {
     String token = await getToken();
     if (token.isNotEmpty) {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) {
-        return BottomNavBar();
-      }));
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) {
+          return BottomNavBar();
+        }),
+        (route) => false,
+      );
     } else {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) {
-        return const RegisterScreen();
-      }));
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) {
+          return const RegisterScreen();
+        }),
+        (route) => false,
+      );
     }
   }
 
