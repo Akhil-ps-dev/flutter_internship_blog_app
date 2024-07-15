@@ -6,12 +6,12 @@ import '../my_blogs/my_blogs.dart';
 import 'widgets/bottom_nav_widget.dart';
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
+  BottomNavBar({super.key});
 
-  final _pages = const [
-    AllBlogScreen(),
+  final _pages = [
+    const AllBlogScreen(),
     CreateBlogScreen(),
-    MyBlogsScreen(),
+    const MyBlogsScreen(),
   ];
 
   @override

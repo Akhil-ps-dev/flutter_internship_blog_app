@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context)
                   .pushReplacement(MaterialPageRoute(builder: (context) {
-                return const BottomNavBar();
+                return BottomNavBar();
               }));
             },
           ),
