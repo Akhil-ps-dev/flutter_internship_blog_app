@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_internship_blog_app/infrastructure/repository.dart';
 
+import 'infrastructure/auth/login_rego.dart';
 import 'screens/auth/register/register.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    RepositoryProvider(
+      create: (context) => Repository(loginRepo: LoginRepo()),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
