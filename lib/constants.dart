@@ -16,16 +16,18 @@ InputDecoration kInputDecoration(String hintText) {
 class PrimaryButton extends StatelessWidget {
   final String text;
   final IconData icon;
+  final VoidCallback onPressed;
+  
   const PrimaryButton({
     super.key,
     required this.text,
-    required this.icon,
+    required this.icon, required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
-      onPressed: () {},
+      onPressed:onPressed ,
       label: Text(text),
       icon: Icon(icon),
       style: ButtonStyle(
