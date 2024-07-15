@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../bottom_nav/bottom_navbar.dart';
 import '../register/register.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -37,9 +38,15 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const PrimaryButton(
+          PrimaryButton(
             text: 'Login',
             icon: CupertinoIcons.arrow_right,
+            onPressed: () {
+              Navigator.of(context)
+                  .pushReplacement(MaterialPageRoute(builder: (context) {
+                return const BottomNavBar();
+              }));
+            },
           ),
           const SizedBox(
             height: 20,

@@ -70,9 +70,10 @@ class RegisterScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const PrimaryButton(
+           PrimaryButton(
             text: 'Register',
             icon: Icons.person_add,
+            onPressed: () {},
           ),
           const SizedBox(
             height: 20,
