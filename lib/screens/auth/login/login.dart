@@ -2,11 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_blog_app/infrastructure/repository.dart';
-import 'package:flutter_internship_blog_app/models/auth/login_services.dart';
+import 'package:flutter_internship_blog_app/models/login/login_services.dart';
 import 'package:velocity_bloc/cubit/velocity_cubit/velocity_cubit.dart';
 
 import '../../../constants.dart';
-import '../../bottom_nav/bottom_navbar.dart';
 import '../register/register.dart';
 
 class LoginScreen extends StatefulWidget {

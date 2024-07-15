@@ -4,7 +4,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../../core/remote/api_client.dart';
 import '../../core/remote/api_endpoints.dart';
-import '../../models/auth/login_model.dart';
+import '../../models/login/login_model.dart';
 
 class LoginRepo extends ApiClient {
   LoginRepo();
