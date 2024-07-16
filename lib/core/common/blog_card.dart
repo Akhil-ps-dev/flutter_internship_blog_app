@@ -59,12 +59,12 @@ class BlogCard extends StatelessWidget {
             const Divider(),
             ListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(
+                backgroundImage: CachedNetworkImageProvider(
                   profilePic,
                 ),
               ),
               title: Text(authorName),
-            ),
+            )
           ],
         ),
       ),

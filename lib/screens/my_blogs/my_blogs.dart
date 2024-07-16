@@ -6,6 +6,7 @@ import 'package:flutter_internship_blog_app/models/my_blogs/my_blogs_ser.dart';
 import 'package:velocity_bloc/cubit/velocity_cubit/velocity_cubit.dart';
 
 import '../../infrastructure/repository.dart';
+import '../../models/delete_blogs/delete_blog_ser.dart';
 import '../../models/my_blogs/my_blogs_model.dart';
 import '../auth/login/login.dart';
 
@@ -18,10 +19,15 @@ class MyBlogsScreen extends StatefulWidget {
 
 class _MyBlogsScreenState extends State<MyBlogsScreen> {
   late MyBlogsViewModle getMyViewModle;
+  late DeleteBlogViewModle deleteBlogViewModle;
   @override
   void initState() {
     getMyViewModle = MyBlogsViewModle(repository: context.read<Repository>());
     getMyViewModle.fetchMyBlogs();
+
+    deleteBlogViewModle =
+        DeleteBlogViewModle(repository: context.read<Repository>());
+
     super.initState();
   }
 
@@ -67,6 +73,9 @@ class _MyBlogsScreenState extends State<MyBlogsScreen> {
                   title: blogs.title!,
                   description: blogs.description!,
                   imageUrl: blogs.image!,
+                  onDelete: () {
+                    deleteBlogViewModle.deleteBlog(blogs.id!, context);
+                  },
                 );
               },
               itemCount: state.data.data!.length,
@@ -85,11 +94,13 @@ class BlogCard2 extends StatelessWidget {
   final String title;
   final String imageUrl;
   final String description;
+  final VoidCallback onDelete;
   const BlogCard2({
     super.key,
     required this.title,
     required this.imageUrl,
     required this.description,
+    required this.onDelete,
   });
 
   @override
@@ -139,7 +150,7 @@ class BlogCard2 extends StatelessWidget {
                   icon: const Icon(Icons.edit),
                 ),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: onDelete,
                   icon: const Icon(Icons.delete),
                 )),
           ],
