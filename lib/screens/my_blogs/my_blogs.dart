@@ -5,10 +5,12 @@ import 'package:flutter_internship_blog_app/core/utils/utils.dart';
 import 'package:flutter_internship_blog_app/models/my_blogs/my_blogs_ser.dart';
 import 'package:velocity_bloc/cubit/velocity_cubit/velocity_cubit.dart';
 
+import '../../core/remote/api_endpoints.dart';
 import '../../infrastructure/repository.dart';
 import '../../models/delete_blogs/delete_blog_ser.dart';
 import '../../models/my_blogs/my_blogs_model.dart';
 import '../auth/login/login.dart';
+import 'edit_blogs.dart';
 
 class MyBlogsScreen extends StatefulWidget {
   const MyBlogsScreen({super.key});
@@ -73,6 +75,19 @@ class _MyBlogsScreenState extends State<MyBlogsScreen> {
                   title: blogs.title!,
                   description: blogs.description!,
                   imageUrl: blogs.image!,
+                  onEdit: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => EditBlogPage(
+                          blogId: blogs.id.toString(),
+                          title: blogs.title.toString(),
+                          description: blogs.description.toString(),
+                          image: blogs.image.toString(),
+                        ),
+                      ),
+                    );
+                    ApiEndPointUrls.blogid = blogs.id.toString();
+                  },
                   onDelete: () {
                     deleteBlogViewModle.deleteBlog(blogs.id!, context);
                   },
@@ -95,12 +110,14 @@ class BlogCard2 extends StatelessWidget {
   final String imageUrl;
   final String description;
   final VoidCallback onDelete;
+  final VoidCallback onEdit;
   const BlogCard2({
     super.key,
     required this.title,
     required this.imageUrl,
     required this.description,
     required this.onDelete,
+    required this.onEdit,
   });
 
   @override
@@ -146,12 +163,15 @@ class BlogCard2 extends StatelessWidget {
             const Divider(),
             ListTile(
                 leading: IconButton(
-                  onPressed: () {},
+                  onPressed: onEdit,
                   icon: const Icon(Icons.edit),
                 ),
                 trailing: IconButton(
                   onPressed: onDelete,
-                  icon: const Icon(Icons.delete),
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  ),
                 )),
           ],
         ),
