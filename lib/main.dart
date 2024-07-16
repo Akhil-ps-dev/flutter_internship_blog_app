@@ -8,7 +8,9 @@ import 'infrastructure/auth/register_repo.dart';
 import 'infrastructure/create_blogs/create_blogs_repo.dart';
 import 'infrastructure/delete_blog/delete_blog_repo.dart';
 import 'infrastructure/get_all_blogs/get_all_blogs_repo.dart';
+import 'infrastructure/get_blogs_by_id/get_blogs_byid_repo.dart';
 import 'infrastructure/my_blogs/my_blogs_repo.dart';
+import 'infrastructure/update_blog/update_blog.dart';
 
 void main() {
   runApp(
@@ -20,6 +22,8 @@ void main() {
         createBlogRepo: CreateBlogsRepo(),
         myBlogsRepo: MyBlogsRepo(),
         deleteBlogRepo: DeleteBlogRepo(),
+        updateBlogRepo: UpdateBlogRepo(),
+        getBlogsByIdRepo: GetBlogsByIdRepo(),
       ),
       child: const MyApp(),
     ),
