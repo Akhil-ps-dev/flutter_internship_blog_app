@@ -6,6 +6,7 @@ import 'package:flutter_internship_blog_app/screens/splash_screen/splash_screen.
 import 'infrastructure/auth/login_rego.dart';
 import 'infrastructure/auth/register_repo.dart';
 import 'infrastructure/create_blogs/create_blogs_repo.dart';
+import 'infrastructure/delete_blog/delete_blog_repo.dart';
 import 'infrastructure/get_all_blogs/get_all_blogs_repo.dart';
 import 'infrastructure/my_blogs/my_blogs_repo.dart';
 
@@ -18,6 +19,7 @@ void main() {
         getAllBlogsRepo: GetAllBlogsRepo(),
         createBlogRepo: CreateBlogsRepo(),
         myBlogsRepo: MyBlogsRepo(),
+        deleteBlogRepo: DeleteBlogRepo(),
       ),
       child: const MyApp(),
     ),
