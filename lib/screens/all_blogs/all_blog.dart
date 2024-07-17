@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_blog_app/infrastructure/repository.dart';
 import 'package:flutter_internship_blog_app/models/get_all_blogs/get_all_blogs_services.dart';
 import 'package:velocity_bloc/cubit/velocity_cubit/velocity_cubit.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 import '../../core/common/blog_card.dart';
 import '../../models/get_all_blogs/get_all_blogs_modeld.dart';
